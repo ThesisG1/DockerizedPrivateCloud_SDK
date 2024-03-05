@@ -1,0 +1,21 @@
+ros_node:
+  name: leithy
+  topics:
+    publish:
+      topic_1:
+        name: "/cmd_vel"
+        type:  "Twist"
+    subscribe:
+      topic_1:
+        name: "/control"
+        type:  "String"
+        callback: "key_callback"
+      topic_2:
+        name: "/metric"
+        type:  "String"
+        callback: "c_move"
+      topic_3: 
+        name: "/manga"
+        type:  "Twist"
+        callback: "manga_cb"
+

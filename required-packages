@@ -1,0 +1,50 @@
+ cmake libgazebo11-dev libignition-cmake2-dev libignition-common3-av-dev libignition-common3-core-dev libignition-common3-dev
+  libignition-common3-events-dev libignition-common3-graphics-dev libignition-common3-profiler-dev libignition-fuel-tools4-dev libignition-math6-dev
+  libignition-msgs5-dev libignition-tools-dev libignition-transport8-core-dev libignition-transport8-dev libignition-transport8-log-dev libsdformat9-dev
+  ros-noetic-actionlib ros-noetic-actionlib-msgs ros-noetic-actionlib-tutorials ros-noetic-amcl ros-noetic-base-local-planner ros-noetic-bond
+  ros-noetic-bond-core ros-noetic-bondcpp ros-noetic-bondpy ros-noetic-camera-calibration ros-noetic-camera-calibration-parsers
+  ros-noetic-camera-info-manager ros-noetic-carrot-planner ros-noetic-catkin ros-noetic-clear-costmap-recovery ros-noetic-common-msgs
+  ros-noetic-common-tutorials ros-noetic-compressed-depth-image-transport ros-noetic-compressed-image-transport ros-noetic-control-msgs
+  ros-noetic-control-toolbox ros-noetic-controller-interface ros-noetic-controller-manager ros-noetic-controller-manager-msgs ros-noetic-costmap-2d
+  ros-noetic-cv-bridge ros-noetic-depth-image-proc ros-noetic-diagnostic-aggregator ros-noetic-diagnostic-analysis ros-noetic-diagnostic-msgs
+  ros-noetic-diagnostic-updater ros-noetic-drone-wrapper ros-noetic-dwa-local-planner ros-noetic-dynamic-reconfigure ros-noetic-dynamixel-sdk
+  ros-noetic-eigen-conversions ros-noetic-executive-smach ros-noetic-fake-localization ros-noetic-filters ros-noetic-forward-command-controller
+  ros-noetic-gazebo-dev ros-noetic-gazebo-msgs ros-noetic-gazebo-plugins ros-noetic-gazebo-ros ros-noetic-gazebo-ros-pkgs ros-noetic-gencpp
+  ros-noetic-geneus ros-noetic-genlisp ros-noetic-genmsg ros-noetic-gennodejs ros-noetic-genpy ros-noetic-geographic-msgs ros-noetic-geometry-msgs
+  ros-noetic-global-planner ros-noetic-gmapping ros-noetic-hardware-interface ros-noetic-hls-lfcd-lds-driver ros-noetic-hri ros-noetic-hri-msgs
+  ros-noetic-image-common ros-noetic-image-geometry ros-noetic-image-proc ros-noetic-image-publisher ros-noetic-image-transport
+  ros-noetic-image-transport-plugins ros-noetic-image-view ros-noetic-interactive-markers ros-noetic-joint-limits-interface
+  ros-noetic-joint-state-controller ros-noetic-joint-state-publisher ros-noetic-joint-state-publisher-gui ros-noetic-joy ros-noetic-kdl-conversions
+  ros-noetic-kdl-parser ros-noetic-laser-geometry ros-noetic-laser-proc ros-noetic-libmavconn ros-noetic-map-msgs ros-noetic-map-server ros-noetic-mavlink
+  ros-noetic-mavros ros-noetic-mavros-dbgsym ros-noetic-mavros-extras ros-noetic-mavros-extras-dbgsym ros-noetic-mavros-msgs ros-noetic-message-filters
+  ros-noetic-message-generation ros-noetic-message-runtime ros-noetic-mk ros-noetic-move-base ros-noetic-move-base-msgs ros-noetic-move-slow-and-clear
+  ros-noetic-nav-core ros-noetic-nav-msgs ros-noetic-navfn ros-noetic-navigation ros-noetic-nodelet ros-noetic-nodelet-core ros-noetic-nodelet-topic-tools
+  ros-noetic-nodelet-tutorial-math ros-noetic-octomap ros-noetic-octomap-mapping ros-noetic-octomap-msgs ros-noetic-octomap-ros
+  ros-noetic-octomap-rviz-plugins ros-noetic-octomap-server ros-noetic-pcl-conversions ros-noetic-pcl-msgs ros-noetic-pcl-ros ros-noetic-pluginlib
+  ros-noetic-pluginlib-tutorials ros-noetic-polled-camera ros-noetic-position-controllers ros-noetic-pr2-msgs ros-noetic-pr2-power-board
+  ros-noetic-py-trees-msgs ros-noetic-python-qt-binding ros-noetic-qt-dotgraph ros-noetic-qt-gui ros-noetic-qt-gui-cpp ros-noetic-qt-gui-py-common
+  ros-noetic-realtime-tools ros-noetic-resource-retriever ros-noetic-rgbd-launch ros-noetic-robot-state-publisher ros-noetic-ros ros-noetic-ros-base
+  ros-noetic-ros-comm ros-noetic-ros-core ros-noetic-ros-tutorials ros-noetic-rosbag ros-noetic-rosbag-fancy-msgs ros-noetic-rosbag-storage
+  ros-noetic-rosbash ros-noetic-rosbuild ros-noetic-rosconsole ros-noetic-rosconsole-bridge ros-noetic-roscpp ros-noetic-roscpp-tutorials
+  ros-noetic-roscreate ros-noetic-rosfmt ros-noetic-rosgraph-msgs ros-noetic-roslang ros-noetic-roslaunch ros-noetic-roslib ros-noetic-roslisp
+  ros-noetic-rosmake ros-noetic-rosmon-msgs ros-noetic-rosmsg ros-noetic-rosnode ros-noetic-rosout ros-noetic-rospy ros-noetic-rospy-tutorials
+  ros-noetic-rosserial-arduino ros-noetic-rosserial-client ros-noetic-rosserial-msgs ros-noetic-rosserial-python ros-noetic-rosservice ros-noetic-rostest
+  ros-noetic-rostopic ros-noetic-rosunit ros-noetic-roswtf ros-noetic-rotate-recovery ros-noetic-rqt ros-noetic-rqt-action ros-noetic-rqt-bag
+  ros-noetic-rqt-bag-plugins ros-noetic-rqt-common-plugins ros-noetic-rqt-console ros-noetic-rqt-controller-manager ros-noetic-rqt-dep
+  ros-noetic-rqt-drone-teleop ros-noetic-rqt-ez-publisher ros-noetic-rqt-graph ros-noetic-rqt-ground-robot-teleop ros-noetic-rqt-gui ros-noetic-rqt-gui-cpp
+  ros-noetic-rqt-gui-cpp-dbgsym ros-noetic-rqt-gui-py ros-noetic-rqt-human-radar ros-noetic-rqt-human-radar-dbgsym ros-noetic-rqt-image-view
+  ros-noetic-rqt-image-view-dbgsym ros-noetic-rqt-joint-trajectory-controller ros-noetic-rqt-launch ros-noetic-rqt-logger-level ros-noetic-rqt-moveit
+  ros-noetic-rqt-msg ros-noetic-rqt-multiplot ros-noetic-rqt-multiplot-dbgsym ros-noetic-rqt-nav-view ros-noetic-rqt-plot ros-noetic-rqt-pose-view
+  ros-noetic-rqt-pr2-dashboard ros-noetic-rqt-publisher ros-noetic-rqt-py-common ros-noetic-rqt-py-console ros-noetic-rqt-py-trees
+  ros-noetic-rqt-reconfigure ros-noetic-rqt-robot-dashboard ros-noetic-rqt-robot-monitor ros-noetic-rqt-robot-plugins ros-noetic-rqt-robot-steering
+  ros-noetic-rqt-rosbag-fancy ros-noetic-rqt-rosbag-fancy-dbgsym ros-noetic-rqt-rosmon ros-noetic-rqt-rosmon-dbgsym ros-noetic-rqt-runtime-monitor
+  ros-noetic-rqt-rviz ros-noetic-rqt-rviz-dbgsym ros-noetic-rqt-service-caller ros-noetic-rqt-shell ros-noetic-rqt-srv ros-noetic-rqt-tf-tree
+  ros-noetic-rqt-top ros-noetic-rqt-topic ros-noetic-rqt-web ros-noetic-rviz ros-noetic-self-test ros-noetic-sensor-msgs ros-noetic-shape-msgs
+  ros-noetic-smach-msgs ros-noetic-smach-ros ros-noetic-stage ros-noetic-std-msgs ros-noetic-std-srvs ros-noetic-stereo-image-proc ros-noetic-stereo-msgs
+  ros-noetic-teleop-twist-joy ros-noetic-teleop-twist-keyboard ros-noetic-tf ros-noetic-tf2 ros-noetic-tf2-eigen ros-noetic-tf2-geometry-msgs
+  ros-noetic-tf2-kdl ros-noetic-tf2-msgs ros-noetic-tf2-py ros-noetic-tf2-ros ros-noetic-tf2-sensor-msgs ros-noetic-theora-image-transport
+  ros-noetic-topic-tools ros-noetic-trajectory-msgs ros-noetic-transmission-interface ros-noetic-turtle-actionlib ros-noetic-turtlebot3
+  ros-noetic-turtlebot3-bringup ros-noetic-turtlebot3-description ros-noetic-turtlebot3-example ros-noetic-turtlebot3-msgs ros-noetic-turtlebot3-navigation
+  ros-noetic-turtlebot3-slam ros-noetic-turtlebot3-teleop ros-noetic-turtlesim ros-noetic-unique-id ros-noetic-urdf ros-noetic-uuid-msgs
+  ros-noetic-variant-msgs ros-noetic-variant-topic-tools ros-noetic-vision-opencv ros-noetic-visualization-marker-tutorials ros-noetic-visualization-msgs
+  ros-noetic-voxel-grid ros-noetic-xacro
