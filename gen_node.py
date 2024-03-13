@@ -1,5 +1,5 @@
 import yaml
-import node
+import Ros_Node as node
 
 class RosNodeGen():
 

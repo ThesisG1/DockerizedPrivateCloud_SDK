@@ -3,19 +3,19 @@ ros_node:
   topics:
     publish:
       topic_1:
-        name: "/cmd_vel"
-        type:  "Twist"
+        name: "cmd_vel"
+        type:  "geometry_msgs/Twist"
     subscribe:
       topic_1:
-        name: "/control"
-        type:  "String"
+        name: "control"
+        type:  "std_msgs/String"
         callback: "key_callback"
       topic_2:
-        name: "/metric"
-        type:  "String"
+        name: "metric"
+        type:  "std_msgs/String"
         callback: "c_move"
       topic_3: 
-        name: "/manga"
-        type:  "Twist"
+        name: "manga"
+        type:  "geometry_msgs/Twist"
         callback: "manga_cb"
 
