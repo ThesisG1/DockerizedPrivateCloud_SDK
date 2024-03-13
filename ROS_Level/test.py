@@ -1,8 +1,8 @@
  
 import rospy
 
-from geometry_msgs.msg import Twist
 from std_msgs.msg import String
+from geometry_msgs.msg import Twist
 
 
 def key_callback(data):
@@ -17,7 +17,7 @@ def manga_cb(data):
     print('IMPLEMENT CALLBACK manga_cb')
 
 
-rospy.init_node('leithy')
+rospy.init_node('test')
         
                 
 cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
