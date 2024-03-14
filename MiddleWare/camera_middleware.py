@@ -1,32 +1,36 @@
-from ..ROS_Level import gen_node as node
-
+#from ..ROS_Level import gen_node as node
+import sys
+sys.path.append('/home/g1/SDK/DockerizedPrivateCloud_SDK')
+import ROS_Level.gen_node as node
 class Namespace:
     def __init__(self, name, functions):
         self.namespace_name = name
         self.functions = functions
 
-    def generate_namespace(self, yaml):
-        # Load YAML skeleton from file
-        with open(yaml, 'r') as file:
-            namespace = yaml.safe_load(file)
+    # def generate_namespace(self, yaml):
+    #     # Load YAML skeleton from file
+    #     with open(yaml, 'r') as file:
+    #         namespace = yaml.safe_load(file)
 
-        self.namespace_name = namespace_info['namespace']['name']
-        self.function_name = namespace_info['namespace']['functions']
-        namespace_info = Namespace(name = self.namespace_name, functions = self.function_name)
-        return namespace_info
+    #     self.namespace_name = namespace_info['namespace']['name']
+    #     self.function_name = namespace_info['namespace']['functions']
+    #     namespace_info = Namespace(name = self.namespace_name, functions = self.function_name)
+    #     return namespace_info
+    
 class Middleware:
     
-    def simulation_control(self):
+    def simulation_control(self, yml_file):
+        gen_node = node.RosNodeGen()
         # this generates the ros nodes in the middleware
-        node_name = node.RosNodeGen.generate_node('middleware_node.yml')
+        node_name = gen_node.generate_node(yml_file)
 
-        with open("{node_name}.py", "w") as file:
-            file.write(f'''
-import rospy
-import json
-import socketio
-import os
-''')
+#         with open(f"{node_name}.py", "w") as file:
+#             file.write(f'''
+# import rospy
+# import json
+# import socketio
+# import os
+# ''')
         
     def camera_stream(self, sim_client, sim_stream):
         with open("simulation_stream.py", "w") as file:
@@ -129,8 +133,7 @@ if __name__ == '__main__':
 
 
 if __name__ == '__main__':
-
-    gen = Middleware()
+    middleware = Middleware()
     # g = airsim.VehicleClient()
-    # gen.camera_stream("airsim_VehicleClient","airsim_fetch")
-    gen.simulation_control()
+    # middleware.camera_stream("airsim_VehicleClient","airsim_fetch")
+    middleware.simulation_control('middleware_node.yml')
