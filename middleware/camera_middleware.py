@@ -1,8 +1,8 @@
 # from ..ROS_Level import gen_node as node
 import sys
 
-sys.path.append("/home/g1/SDK/DockerizedPrivateCloud_SDK")
-import ROS_Level.gen_node as node
+sys.path.append("..")
+import ros_level.gen_node as node
 
 
 class Namespace:

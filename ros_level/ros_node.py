@@ -4,8 +4,9 @@ import sys, select, os
 from std_msgs.msg import String
 import sys
 
-sys.path.append("../")
-import templates
+sys.path.append("..")
+print("PATH: ", sys.path)
+import utilities.templates as templates
 
 
 class ROSNodeInfo:
@@ -22,64 +23,21 @@ class Node:
         self.nodeInfo = ros_node_info
         with open(f"{ros_node_info.node_name}.py", "a") as file:
             # parse imports types
+            writer = templates.FileWriter(file=file)
             imports, types = self.parse_types(ros_node_info)
-            # write all the imports to the file
-            file.write(
-                f""" 
-import rospy
-
-"""
-            )
-            # write imports based on the parsed types
-            for imp in imports:
-                file.write(f"from {imp}.msg import {', '.join(types[imp])}\n")
-            file.write("\n")
+            # funciton to write the imports in the file
+            writer.write_imports(imports, types)
 
             print(ros_node_info.node_subscribers)
-            for i in range(len(ros_node_info.node_subscribers)):
-                name = ros_node_info.node_subscribers[f"topic_{i+1}"]["name"]
-                callback = ros_node_info.node_subscribers[f"topic_{i+1}"]["callback"]
-                file.write(templates.callback_function(callback=callback))
-            #                     f"""
-            # def {callback}(data):
-            #     print('IMPLEMENT CALLBACK {callback}')
+            writer.callback_function(ros_node_info.node_subscribers)
 
-            # """
+            writer.init_node(ros_node_info.node_name)
 
-            file.write(
-                f"""
-rospy.init_node('{ros_node_info.node_name}')
-        
-                """
-            )
-
-            for i in range(len(ros_node_info.node_publishers)):
-                name = ros_node_info.node_publishers[f"topic_{i+1}"]["name"]
-                type = ros_node_info.node_publishers[f"topic_{i+1}"]["type"]
-                file.write(
-                    f"""
-{name}_pub = rospy.Publisher('/{name}', {type.split("/")[-1]}, queue_size=10)
-                """
-                )
-
-            for i in range(len(ros_node_info.node_subscribers)):
-                name = ros_node_info.node_subscribers[f"topic_{i+1}"]["name"]
-                type = ros_node_info.node_subscribers[f"topic_{i+1}"]["type"]
-                callback = ros_node_info.node_subscribers[f"topic_{i+1}"]["callback"]
-                file.write(
-                    f"""
-{name}_sub = rospy.Subscriber('/{name}',{type.split("/")[-1]},{callback})
-                """
-                )
-
-            file.write(
-                """
-rospy.spin()
-                       """
-            )
+            writer.write_publishers(ros_node_info.node_publishers)
+            writer.write_subscribers(ros_node_info.node_subscribers)
         parse = self.parse_types(ros_node_info)
 
-    # Parse the ypes found in the ['type'] field of the node_publishers and node_subscribers
+    # Parse the types found in the ['type'] field of the node_publishers and node_subscribers
     def parse_types(self, ros_node_info):
         imports = set()
         types = {}

@@ -2,14 +2,14 @@ import yaml
 import ros_node as node
 import sys
 
-sys.path.append("DockerizedPrivateCloud_SDK/MiddleWare/camera_middleware.py")
-import MiddleWare.camera_middleware as mw
+sys.path.append("..")
+import middleware.camera_middleware as mw
 
 
 class RosNodeGen:
-    def generate_node(self, yml_file):
-        #TODO: Add an init function to initialize the class for better OOP
-
+    def __init__(self, yml_file):
+        # TODO: Add an init function to initialize the class for better OOP
+        # TODO: validation for [][] in topics
         # This function is going to be a universal function that generates
         # namespaces, nodes and middlewares.
         # we are trying to create the files neccessary to generate namespaces and middlewares
@@ -29,13 +29,7 @@ class RosNodeGen:
                 node_subscribers=self.subscribe_topics,
             )
             n = node.Node(node_info)
-        else: 
-            ValueError("Empty YAML file")
-        return node_info.node_name
 
 
-# if __name__ == '__main__':
-
-#     gen = RosNodeGen()
-#     gen.generate_node()
-#     #these couple of lines must be removed and written in a new file
+if __name__ == "__main__":
+    gen = RosNodeGen("node_config.yml")
