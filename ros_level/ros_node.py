@@ -7,6 +7,7 @@ import sys
 sys.path.append("..")
 print("PATH: ", sys.path)
 import utilities.templates as templates
+import utilities.parse as parser
 
 
 class ROSNodeInfo:
@@ -24,7 +25,7 @@ class Node:
         with open(f"{ros_node_info.node_name}.py", "a") as file:
             # parse imports types
             writer = templates.FileWriter(file=file)
-            imports, types = self.parse_types(ros_node_info)
+            imports, types = parser.Parser.parse_types(ros_node_info)
             # funciton to write the imports in the file
             writer.write_imports(imports, types)
 
@@ -35,30 +36,30 @@ class Node:
 
             writer.write_publishers(ros_node_info.node_publishers)
             writer.write_subscribers(ros_node_info.node_subscribers)
-        parse = self.parse_types(ros_node_info)
+        parse = parser.Parser.parse_types(ros_node_info)
 
-    # Parse the types found in the ['type'] field of the node_publishers and node_subscribers
-    def parse_types(self, ros_node_info):
-        imports = set()
-        types = {}
-        for i in range(len(ros_node_info.node_publishers)):
-            type = ros_node_info.node_publishers[f"topic_{i+1}"]["type"]
-            if "/" in type:
-                import_type, type_name = type.split("/")
-                imports.add(import_type)
-                if import_type in types:
-                    types[import_type].append(type_name)
-                else:
-                    types[import_type] = [type_name]
+    # # Parse the types found in the ['type'] field of the node_publishers and node_subscribers
+    # def parse_types(self, ros_node_info):
+    #     imports = set()
+    #     types = {}
+    #     for i in range(len(ros_node_info.node_publishers)):
+    #         type = ros_node_info.node_publishers[f"topic_{i+1}"]["type"]
+    #         if "/" in type:
+    #             import_type, type_name = type.split("/")
+    #             imports.add(import_type)
+    #             if import_type in types:
+    #                 types[import_type].append(type_name)
+    #             else:
+    #                 types[import_type] = [type_name]
 
-        for i in range(len(ros_node_info.node_subscribers)):
-            type = ros_node_info.node_subscribers[f"topic_{i+1}"]["type"]
+    #     for i in range(len(ros_node_info.node_subscribers)):
+    #         type = ros_node_info.node_subscribers[f"topic_{i+1}"]["type"]
 
-            if "/" in type:
-                import_type, type_name = type.split("/")
-                imports.add(import_type)
-                if type in types:
-                    types[import_type].append(type_name)
-                else:
-                    types[import_type] = [type_name]
-        return imports, types
+    #         if "/" in type:
+    #             import_type, type_name = type.split("/")
+    #             imports.add(import_type)
+    #             if type in types:
+    #                 types[import_type].append(type_name)
+    #             else:
+    #                 types[import_type] = [type_name]
+    #     return imports, types

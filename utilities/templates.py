@@ -5,9 +5,9 @@ class FileWriter:
         self.file = file
 
     def callback_function(self, subscribers):
-        for i in range(len(subscribers)):
-            name = subscribers[f"topic_{i+1}"]["name"]
-            callback = subscribers[f"topic_{i+1}"]["callback"]
+        for sub in subscribers:
+            name = subscribers[sub]["name"]
+            callback = subscribers[sub]["callback"]
             self.file.write(
                 f"""def {callback}(data):
     print('IMPLEMENT CALLBACK {callback}')\n"""
@@ -28,26 +28,21 @@ class FileWriter:
         self.file.write("\n")
 
     def write_publishers(self, publishers):
-        for i in range(len(publishers)):
-            name = publishers[f"topic_{i+1}"]["name"]
-            type = publishers[f"topic_{i+1}"]["type"]
+        for pub in publishers:
+            name = publishers[pub]["name"]
+            type = publishers[pub]["type"]
             self.file.write(
-                f"""{name}_pub = rospy.Publisher('/{name}', {type.split("/")[-1]}, queue_size=10)\n"""
+                f"""
+{name}_pub = rospy.Publisher('/{name}', {type.split("/")[-1]}, queue_size=10)\n"""
             )
 
     def write_subscribers(self, subscribers):
-        for i in range(len(subscribers)):
-            name = subscribers[f"topic_{i+1}"]["name"]
-            type = subscribers[f"topic_{i+1}"]["type"]
-            callback = subscribers[f"topic_{i+1}"]["callback"]
+        for sub in subscribers:
+            name = subscribers[sub]["name"]
+            type = subscribers[sub]["type"]
+            callback = subscribers[sub]["callback"]
             self.file.write(
                 f"""
 {name}_sub = rospy.Subscriber('/{name}',{type.split("/")[-1]},{callback})
             """
             )
-
-        self.file.write(
-            """
-rospy.spin()
-                    """
-        )

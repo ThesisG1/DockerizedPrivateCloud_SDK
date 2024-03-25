@@ -18,10 +18,10 @@ def manga_cb(data):
 rospy.init_node("test")
 
 
-cmd_vel_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=10)
-
 control_sub = rospy.Subscriber("/control", String, key_callback)
 
 metric_sub = rospy.Subscriber("/metric", String, c_move)
 
 manga_sub = rospy.Subscriber("/manga", Twist, manga_cb)
+
+cmd_vel_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=10)
