@@ -1,5 +1,5 @@
 import yaml
-import ros_node as node
+import ros_level.ros_node as node
 import sys
 
 sys.path.append("..")
