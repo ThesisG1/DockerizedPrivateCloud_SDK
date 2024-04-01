@@ -1,6 +1,6 @@
 import rospy
-from std_msgs.msg import String
 from geometry_msgs.msg import Twist
+from std_msgs.msg import String
 
 def control_callback(data):
     print('IMPLEMENT CALLBACK control_callback')
