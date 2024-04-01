@@ -3,7 +3,7 @@ import ros_node as node
 import sys
 
 sys.path.append("..")
-import middleware.middelware_gen as mw
+import middleware.middleware_gen as mw
 
 
 class RosNodeGen:

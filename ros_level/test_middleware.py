@@ -1,27 +1,17 @@
 import rospy
-from std_msgs.msg import String
+from std_msgs.msg import String, String
 from geometry_msgs.msg import Twist
 
+def cmd_vel_callback(data):
+    print('IMPLEMENT CALLBACK cmd_vel_callback')
 
-def key_callback(data):
-    print("IMPLEMENT CALLBACK key_callback")
-
-
-def c_move(data):
-    print("IMPLEMENT CALLBACK c_move")
+rospy.init_node('test')
 
 
-def manga_cb(data):
-    print("IMPLEMENT CALLBACK manga_cb")
+cmd_vel_sub = rospy.Subscriber('/cmd_vel',Twist,cmd_vel_callback)
+            
+control_pub = rospy.Publisher('/control', String, queue_size=10)
 
+metric_pub = rospy.Publisher('/metric', String, queue_size=10)
 
-rospy.init_node("test")
-
-
-control_sub = rospy.Subscriber("/control", String, key_callback)
-
-metric_sub = rospy.Subscriber("/metric", String, c_move)
-
-manga_sub = rospy.Subscriber("/manga", Twist, manga_cb)
-
-cmd_vel_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=10)
+manga_pub = rospy.Publisher('/manga', Twist, queue_size=10)

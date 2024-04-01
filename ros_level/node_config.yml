@@ -10,16 +10,13 @@ ros_node:
       topic_1:
         name: "control"
         type:  "std_msgs/String"
-        callback: "key_callback"
         middleware_flag: 1
       topic_2:
         name: "metric"
         type:  "std_msgs/String"
-        callback: "c_move"
         middleware_flag: 1
       topic_3: 
         name: "manga"
         type:  "geometry_msgs/Twist"
-        callback: "manga_cb"
         middleware_flag: 1
 
