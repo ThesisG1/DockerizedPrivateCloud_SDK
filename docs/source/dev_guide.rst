@@ -3,6 +3,10 @@
 Developer Guide
 ================
 
+
+
+    
+
 Using the SDK requires the following steps:
 
 1. Install the SDK
@@ -14,5 +18,5 @@ Using the SDK requires the following steps:
 2. Import the SDK
 
 .. code-block:: python
-    
+
     from DTSDK import DTSDK
