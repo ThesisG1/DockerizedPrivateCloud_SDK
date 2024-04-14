@@ -1,11 +1,9 @@
-.. _developer-guide:
-
+.. _developer_guide:
+***************
 Developer Guide
-================
+***************
 
 
-
-    
 
 Using the SDK requires the following steps:
 
