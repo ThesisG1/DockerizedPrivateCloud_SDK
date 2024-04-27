@@ -3,7 +3,9 @@ import ros_level.ros_node as node
 import sys
 
 sys.path.append("..")
+print("PATH: ", sys.path)
 import middleware.middleware_gen as mw
+import remote_driving_dashboard.actuate.gen_views as views
 
 
 class RosNodeGen:
@@ -36,6 +38,7 @@ class RosNodeGen:
             )
             n = node.Node(node_info)
             middleware = mw.Middleware(node_info)
+            actuate_views = views.gen_actuate_views(node_info)
 
 
 if __name__ == "__main__":

@@ -63,7 +63,7 @@ def disconnect():
 
 #Add the definition of your functions here as follows
 #@sio.event(namespace='/{namespace}')
-#def fn(data): 
+#def fn(data):
     #print('data')\n\n""")
 
     def write_middleware_main(self, namespace):
@@ -71,4 +71,88 @@ def disconnect():
 if __name__ == '__main__':
     sio.connect(os.path.expandvars('http://$HOST_IP:8000/{namespace}'))\n
     rospy.spin()""")
-        self.file.write("\n")   
+        self.file.write("\n")
+
+
+    def write_sio_web(self, name):
+        self.file.write(f"""
+@sio.on('connect', namespace='/web')
+def connect_web(sid, data):
+print('[INFO] Web client connected: {{}}'.format(sid))
+
+@sio.on('disconnect', namespace='/web')
+def disconnect_web(sid):
+print('[INFO] Web client disconnected: {{}}'.format(sid))
+
+@sio.on('new_data', namespace='/web')
+#Add the definition of your functions here as follows use the fn you created in Middleware
+#def newData(sid, data):
+sio.emit('#fn', data, namespace='/{name}_namespace')\n\n""")
+        
+        
+    def write_sio_cv(self):
+        self.file.write(f"""
+@sio.on('connect', namespace='/cv')
+def connect_cv(sid, data):
+    print('[INFO] CV client connected: {{}}'.format(sid))
+
+
+
+@sio.on('disconnect', namespace='/cv')
+def disconnect_cv(sid):
+    print('[INFO] CV client disconnected: {{}}'.format(sid))
+
+
+@sio.on('cv2server',namespace='/cv')
+def handle_cv_message(sid,message):
+    sio.emit('server2web', message, namespace='/web')\n\n""")
+
+
+# def write_sio_dashboard(self, name):
+#         self.file.write(f"""
+# @sio.on('connect', namespace='/dashboard')
+# def connect_dashboard(sid, data):
+#     print('[INFO] dashboard connected: {{}}'.format(sid))
+    
+
+# @sio.on('disconnect', namespace='/dashboard')
+# def disconnect_dashboard(sid):
+#     print('[INFO] dashboard disconnected: {{}}'.format(sid))
+
+
+# @sio.on('sensedData',namespace='/dashboard')
+# def handle_sensed_data(sid,message):
+#     sio.emit('sensedData', message, namespace='/web')\n\n""")
+        
+    def write_sio_database(self):
+        self.file.write(f"""
+@@sio.on('connect', namespace='/dynamicDB')
+def connect_QT(sid,data):
+    print("Hi from".format(sid))
+    print('[INFO] Create_DynamicDB connected: {{}}'.format(sid))\n\n""")
+        
+    def write_update_data(self):
+        self.file.write(f"""
+ef actuate_data(request):
+
+    if request.is_ajax():
+        speed = request.POST.get('speed_control')
+        print("_____________________",speed)
+        # actuate_DB(speed, 'control_speed')
+    return render(request, "actuate/actuate_data.html", {'actuateData': json.dumps(actuateData())})
+#
+def steering_angle(request):
+    if request.is_ajax():
+        angle = request.POST.get('steering_angle')
+        print("_____________________",angle)
+        # actuate_DB(angle, 'steering_angle')
+    return render(request, "actuate/actuate_data.html")
+
+def direction(request):
+    if request.is_ajax():
+        direction = request.POST.get('direction')
+        print("_____________________",direction)
+        # actuate_DB(direction, 'direction')
+    return render(request, "actuate/actuate_data.html")\n\n""")
+
+

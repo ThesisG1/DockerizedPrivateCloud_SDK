@@ -30,14 +30,15 @@ class Middleware:
         if publisher_topics or subscriber_topics:
             mw = MiddlewareTopics(publisher_topics, subscriber_topics)
             with open(f"{self.node_info.node_name}_middleware.py", "w") as file:
+                file.write(f"""TESTTTTTT\n""")
                 writer = templates.FileWriter(file=file)
                 imports, types = parser.Parser.parse_types(mw)
                 writer.write_imports(imports, types)
                 file.write(f"""import socketio\nimport os\n\n""")
                 writer.callback_function(mw.node_subscribers)
-                writer.write_namespaces(namespace="mariam_namespace")
+                writer.write_namespaces(namespace="salma_namespace")
                 writer.init_node(node_name=self.node_info.node_name)
                 writer.write_subscribers(mw.node_subscribers)
                 writer.write_publishers(mw.node_publishers)
-                writer.write_middleware_main(namespace="mariam_namespace")
+                writer.write_middleware_main(namespace="salma_namespace")
         # TODO: Generate Namespaces and handle the templates neccessary for it

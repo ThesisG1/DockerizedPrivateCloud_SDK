@@ -1,4 +1,5 @@
-.. _setting-up:
+.. _setting_up:
 
-Getting Started with Drone SDK
-==============================
+***************
+Getting Started
+***************

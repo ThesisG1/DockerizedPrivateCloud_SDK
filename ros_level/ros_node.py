@@ -11,7 +11,7 @@ import utilities.parse as parser
 
 
 class ROSNodeInfo:
-    def __init__(self, node_name, node_subscribers, node_publishers):
+    def __init__(self, node_name, node_subscribers, node_publishers,file_name):
         self.node_name = node_name
         self.node_subscribers = node_subscribers
         self.node_publishers = node_publishers
