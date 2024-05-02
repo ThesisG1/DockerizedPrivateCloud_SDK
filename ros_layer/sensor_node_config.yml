@@ -1,0 +1,24 @@
+ros_node:
+  name: sensor_node
+  flow_flag: 1          #(1:Bottom-Up Flow, 0:Top-Down Flow)
+  topics:
+    publish:
+      topic_1:
+        name: "mariam"
+        type:  "std_msgs/String"
+        middleware_flag: 1    #(1:we are propagating to the middleware)
+    subscribe:
+      topic_1:
+        name: "/cmd_vel"  #subscribing to relevant velocity topic
+        type:  "Twist"
+        middleware_flag: 1
+      topic_2:
+        name: "/mavros/imu/data" #subscribing to relevant acceleration topic
+        type:  "Imu"
+        middleware_flag: 1
+      topic_3:
+        name: "/mavros/global_position/global" #subscribing to relevant GPS topic
+        type:  "NavSatFix"
+        middleware_flag: 1
+      
+
