@@ -1,0 +1,16 @@
+ros_node:
+  name: trial1
+  flow_flag: 1          #(1:Bottom-Up Flow, 0:Top-Down Flow)
+  topics:
+    publish:
+      topic_1:
+        name: "mariam"
+        type:  "std_msgs/String"
+        middleware_flag: 1    #(1:we are propagating to the middleware)
+    subscribe:
+      topic_1:
+        name: "control"
+        type:  "std_msgs/String"
+        middleware_flag: 1
+      
+
