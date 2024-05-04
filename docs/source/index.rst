@@ -2,6 +2,7 @@
    sphinx-quickstart on Thu Apr  4 16:45:14 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+   
 *************************************************************
 Welcome to Khet-Shut: A Digital Twin SDK for Robotic Vehicles
 *************************************************************
@@ -24,6 +25,14 @@ The project uses the concept of a dockerized private cloud to host the dashboard
 .. User Guide
 .. ==================
 .. See the :ref:`developer_guide` for more information on how to use the SDK.
+.. figure:: /_static/ddiagram.png 
+    :alt: Flow Diagram of the Project
+    :align: center
+    :figclass: align-center
+    :class: align-center
+    :width: 100%
+    
+    Flow Diagram of the Project
 
 .. toctree::
    :maxdepth: 2
